@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HomeDecorShop.API</name>
+    </assembly>
+    <members>
+        <member name="M:HomeDecorShop.API.Controllers.OrdersController.Post(HomeDecorShop.Application.UseCases.DTO.CreateOrderDTO,HomeDecorShop.Application.UseCases.Commands.ICreateOrderCommand)">
+             <summary>
+             Creates new order.
+             </summary>
+             <param name="data"></param>
+             <param name="command"></param>
+             <returns>A newly created order, and order lines.</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Orders
+                 {
+                    "Country": "Country name" | null,
+                    "City": "City name" | null,
+                    "Address": "Address" | null,
+                    "Phone": "Phone" | null,
+                    "OrderLines": [
+                          {
+                             "ProductId":2,
+                             "Quantity":1
+                          }
+                       ]
+                     
+                    
+                 }
+            
+             </remarks>
+             <response code="201">Successfull creation.</response>
+             <response code="422">Validation failure.</response>
+             <response code="500">Unexpected server error.</response>
+        </member>
+        <member name="M:HomeDecorShop.API.Controllers.ProductsController.Delete(System.Int32,HomeDecorShop.Application.UseCases.Commands.IDeleteProductCommand)">
+            <summary>
+            Deletes product.
+            </summary>
+            <param name="id"></param>
+            <param name="command"></param>
+            <returns></returns>
+            <response code="204">Successfully deleted.</response>
+            <response code="401">Unauthorized.</response>
+            <response code="403">User is not allowed to execute usecase.</response>
+            <response code="404">Entity not found.</response>
+            <response code="409">Can`t delete product because it is linked to another table.</response>
+        </member>
+        <member name="M:HomeDecorShop.API.Controllers.TokenController.Post(HomeDecorShop.API.Controllers.TokenRequest)">
+             <summary>
+             Creates token
+             </summary>
+             <param name="request"></param>
+             <returns>Creates new token for authorization.</returns>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Token
+                 {
+                     "Email":"example@gmail.com",
+                     "Password":"example123"
+                 }
+            
+             </remarks>
+             <response code="201">Successfull creation.</response>
+             <response code="422">Validation failure.</response>
+             <response code="500">Unexpected server error.</response>
+        </member>
+    </members>
+</doc>
